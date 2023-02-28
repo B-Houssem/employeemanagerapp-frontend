@@ -86,7 +86,7 @@ export class AppComponent implements OnInit {
     }
   }
 
-  public onOpenModal(employee: Employee, mode: string): void{
+  public onOpenModel(mode: string): void{
     const container = document.getElementById('main-container')
     const button = document.createElement('button');
     button.type = 'button';
@@ -96,6 +96,16 @@ export class AppComponent implements OnInit {
     if (mode === 'add') {
       button.setAttribute('date-target', '#addEmployeeModal');
     }
+    container?.appendChild(button);
+    button.click();
+  }
+
+  public onOpenModal(employee: Employee, mode: string): void{
+    const container = document.getElementById('main-container')
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('date-toggle', 'modal');
 
     if (mode === 'edit') {
       this.editEmployee = employee;
